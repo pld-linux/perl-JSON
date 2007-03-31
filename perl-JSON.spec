@@ -4,15 +4,15 @@
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	JSON
-Summary:	JSON - parse and convert to JSON (JavaScript Object Notation).
-#Summary(pl.UTF-8):	
+Summary:	JSON - parse and convert to JSON (JavaScript Object Notation)
+Summary(pl.UTF-8):	JSON - analiza i konwersja do notacji JSON (JavaScript Object Notation)
 Name:		perl-JSON
 Version:	1.07
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/JSON-1.07.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/%{pdir}-%{version}.tar.gz
 # Source0-md5:	c7b385e35f37b4c8595c4f6e7eeb573e
 URL:		http://search.cpan.org/dist/JSON/
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -20,18 +20,23 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl(HTTP::Request)
 BuildRequires:	perl(HTTP::Response)
+BuildRequires:	perl-libwww
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This module converts between JSON (JavaScript Object Notation) and Perl
-data structure into each other.
+This module converts between JSON (JavaScript Object Notation) and
+Perl data structure into each other.
 
-For JSON, See to http://www.crockford.com/JSON/.
+For JSON, See to <http://www.crockford.com/JSON/>.
 
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+Ten moduł dokonuje konwersji między notacją JSON (JavaScript Object
+Notation) a perlowymi strukturami danych.
+
+Więcej informacji na temat notacji JSON można znaleźć pod adresem
+<http://www.crockford.com/JSON/>.
 
 %prep
 %setup -q -n %{pdir}-%{version}
@@ -57,6 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorlib}/*.pm
 %{perl_vendorlib}/Apache/*.pm
-%{perl_vendorlib}/JSON/
-%{perl_vendorlib}/JSONRPC/
+%{perl_vendorlib}/JSON
+%{perl_vendorlib}/JSONRPC
 %{_mandir}/man3/*
