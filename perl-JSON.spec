@@ -7,7 +7,7 @@
 Summary:	JSON - parse and convert to JSON (JavaScript Object Notation)
 Summary(pl.UTF-8):	JSON - analiza i konwersja do notacji JSON (JavaScript Object Notation)
 Name:		perl-JSON
-Version:	1.14
+Version:	2.07
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
@@ -17,11 +17,7 @@ Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/%{pdir}-%{versi
 URL:		http://search.cpan.org/dist/JSON/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with tests}
-BuildRequires:	perl(HTTP::Request)
-BuildRequires:	perl(HTTP::Response)
-BuildRequires:	perl-libwww
-%endif
+Suggests:	perl-JSON-XS
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,7 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README
 %{perl_vendorlib}/*.pm
-%{perl_vendorlib}/Apache/*.pm
 %{perl_vendorlib}/JSON
-%{perl_vendorlib}/JSONRPC
 %{_mandir}/man3/*
