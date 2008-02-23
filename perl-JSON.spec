@@ -13,7 +13,7 @@ Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/%{pdir}-%{version}.tar.gz
-# Source0-md5:	d95d9cdb7c0a64a51d3d946915db52fb
+# Source0-md5:	1ca7b2851f1a8e835eec46d013da8a2b
 URL:		http://search.cpan.org/dist/JSON/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
