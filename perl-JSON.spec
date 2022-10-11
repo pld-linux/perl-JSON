@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define	pdir	JSON
 Summary:	JSON - parse and convert to JSON (JavaScript Object Notation)
@@ -13,9 +13,10 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/JSON/%{pdir}-%{version}.tar.gz
 # Source0-md5:	bbd0239a830384a22295234b46b2fac8
-URL:		http://search.cpan.org/dist/JSON/
+URL:		https://metacpan.org/dist/JSON
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 Suggests:	perl-JSON-XS
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
